@@ -45,26 +45,43 @@ def test_get_nth_fibonacci_zero():
     # Assert
     assert result == 0
 
+def test_area_of_circle_negative_radius():
+    """Test with a negative radius should raise ValueError."""
+    radius = -1
+    try:
+        area_of_circle(radius)
+        assert False, "Expected ValueError for negative radius"
+    except ValueError as e:
+        assert str(e) == "Radius cannot be negative"
 
-def test_get_nth_fibonacci_one():
-    """Test with n=1."""
-    # Arrange
-    n = 1
 
-    # Act
+def test_get_nth_fibonacci_negative():
+    """Test with negative n should raise ValueError."""
+    n = -5
+    try:
+        get_nth_fibonacci(n)
+        assert False, "Expected ValueError for negative n"
+    except ValueError as e:
+        assert str(e) == "n cannot be negative"
+
+
+def test_area_of_circle_large_radius():
+    """Test with a large radius."""
+    radius = 1000
+    result = area_of_circle(radius)
+    expected = 3_141_592.653589793
+    assert abs(result - expected) < 1e-5
+
+
+def test_get_nth_fibonacci_two():
+    """Test with n=2."""
+    n = 2
     result = get_nth_fibonacci(n)
-
-    # Assert
     assert result == 1
 
 
-def test_get_nth_fibonacci_ten():
-     """Test with n=10."""
-     # Arrange
-     n = 10
-
-     # Act
-     result = get_nth_fibonacci(n)
-
-     # Assert
-     assert result == 55
+def test_get_nth_fibonacci_five():
+    """Test with n=5."""
+    n = 5
+    result = get_nth_fibonacci(n)
+    assert result == 5
