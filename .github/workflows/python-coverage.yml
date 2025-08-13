@@ -5,10 +5,10 @@ on:
             - main
 
 permissions:
-    pull_requests: write
+    pull-requests: write
 
 jobs:
-    python_coverage:
+    python-coverage:
         runs-on: ubuntu-latest
 
         steps: 
